@@ -4,14 +4,12 @@
 </template>
 
 <script>
-import Login from './screens/Login.vue'
 import Chat from './screens/Chat.vue'
 
 export default {
   name: 'App',
   components: {
     Chat,
-    Login,
   }
 }
 </script>

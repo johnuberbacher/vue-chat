@@ -1,6 +1,10 @@
 <template>
   <div class="grid bg-gray-100">
-    <form v-if="isLogin" @submit.prevent="send" class="p-5 lg:p-10 flex justify-items-center items-stretch h-screen">
+    <form
+      v-if="isLogin"
+      @submit.prevent="send"
+      class="p-5 lg:p-10 flex justify-items-center items-stretch h-screen"
+    >
       <div
         class="
           w-full
@@ -16,26 +20,32 @@
         <div class="h-full flex flex-col">
           <div
             class="
-              p-5
+              pb-5
+              px-5
               bg-gray-50
               rounded-xl
               border
-              flex flex-col
+              flex flex-col-reverse
               items-start
-              justify-end
+              justify-start
               overflow-y-auto
               h-full
             "
           >
-            <Message v-for="{id, userName} in messages" :key="id" :userName="userName" :sender="userID === user?.uid"></Message>
+            <Message
+              v-for="{ id, text, userName, userID } in messages"
+              :key="id"
+              :userName="userName"
+              :sender="userID === user?.uid"
+            >
+              {{ text }}
+            </Message>
           </div>
           <div class="flex flex-wrap -mx-3 mt-5">
             <div class="flex justify-center w-full px-3">
               <input
                 v-model="message"
                 type="text"
-                name="userInput"
-                id="userInput"
                 class="
                   block
                   w-full
@@ -76,7 +86,7 @@
 <script>
 import { ref, watch, nextTick } from "vue";
 import { useAuth, useChat } from "../Firebase";
-import Message from '../components/Message.vue'
+import Message from "../components/Message.vue";
 export default {
   name: "Chat",
   components: { Message },

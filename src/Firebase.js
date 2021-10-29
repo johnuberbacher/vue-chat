@@ -5,7 +5,6 @@ import 'firebase/compat/firestore';
 import { ref, onUnmounted, computed } from 'vue'
 
 firebase.initializeApp({
-
 })
 
 const auth = firebase.auth()
