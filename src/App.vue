@@ -1,16 +1,10 @@
 <template>
-<Login/>
-  <Chat msg="Vue Chat bult with Firebase and TailwindCSS"/>
+  <router-view />
 </template>
 
 <script>
-import Chat from './screens/Chat.vue'
-
 export default {
   name: 'App',
-  components: {
-    Chat,
-  }
 }
 </script>
 

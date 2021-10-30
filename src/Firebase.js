@@ -1,10 +1,12 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import router from './services/Router.js'
 
 import { ref, onUnmounted, computed } from 'vue'
 
 firebase.initializeApp({
+
 })
 
 const auth = firebase.auth()
@@ -17,9 +19,14 @@ export function useAuth() {
 
     const signIn = async () => {
         const googleProvider = new firebase.auth.GoogleAuthProvider()
-        await auth.signInWithPopup(googleProvider)
+        await auth.signInWithPopup(googleProvider).then(() => {
+            router.push({path: '/Chat'});
+        })
     }
-    const signOut = () => auth.signOut()
+    const signOut = () => {
+        auth.signOut()
+        router.push({path: '/'})
+    }
 
     return { user, isLogin, signIn, signOut }
 }
@@ -45,7 +52,6 @@ export function useChat() {
         messagesCollection.add({
             userName: displayName,
             userId: uid,
-            //userPhotoUrl: photoUrl,
             text: text,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })

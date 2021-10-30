@@ -1,5 +1,5 @@
 <template>
-  <div class="grid bg-gray-100">
+  <div class="grid bg-gray-100 dark:bg-gray-900">
     <form
       v-if="isLogin"
       @submit.prevent="send"
@@ -10,6 +10,7 @@
           w-full
           max-w-3xl
           bg-white
+          dark:bg-gray-800
           mx-auto
           shadow-xl
           p-5
@@ -18,14 +19,39 @@
         "
       >
         <div class="h-full flex flex-col">
+          <div class="flex flex-row mb-5">
+            <button
+            type="button"
+            v-if="isLogin"
+            @click="signOut"
+              class="
+                text-xs
+                shadow
+                border-2 border-green-600
+                bg-transparent
+                dark:bg-gray-900
+                hover:bg-green-600 hover:text-white focus:text-white
+                text-green-600
+                focus:bg-green-700 focus:shadow-outline focus:outline-none
+                font-bold
+                py-1
+                px-4
+                rounded
+              "
+            >
+              Sign Out
+            </button>
+          </div>
           <div
             class="
               pb-5
               px-5
               bg-gray-50
-              rounded-xl
+              dark:bg-gray-900
+              rounded-lg
               border
-              flex flex-col-reverse
+              dark:border-gray-700
+              flex flex-col
               items-start
               justify-start
               overflow-y-auto
@@ -33,10 +59,11 @@
             "
           >
             <Message
-              v-for="{ id, text, userName, userID } in messages"
+              v-for="{ id, text, userName, photoUrl, userId } in messages"
               :key="id"
               :userName="userName"
-              :sender="userID === user?.uid"
+              :photoUrl="photoUrl"
+              :sender="userId === user?.uid"
             >
               {{ text }}
             </Message>
@@ -51,10 +78,12 @@
                   w-full
                   px-5
                   py-2
-                  sm:text-sm
+                  text-sm
                   border border-gray-300
-                  rounded-xl
-                  focus:ring-indigo-500 focus:border-blue-500
+                  rounded-lg
+                  dark:text-white
+                  dark:bg-gray-900 dark:border-gray-700
+                  focus:ring-green-500 focus:border-green-500
                 "
                 required
                 placeholder="send a message..."
