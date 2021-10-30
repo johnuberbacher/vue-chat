@@ -99,7 +99,7 @@
         bg-no-repeat
         border-2 border-green-600
       "
-      style="background-image: url('https://avatars.githubusercontent.com/u/5966499?v=4');
+      :style="{ backgroundImage: 'url(' + photoUrl + ')' }
       "
     ></div>
   </div>
