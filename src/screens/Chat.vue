@@ -120,7 +120,7 @@ export default {
   name: "Chat",
   components: { Message },
   setup() {
-    const { user, isLogin } = useAuth();
+    const { user, isLogin, signOut } = useAuth();
     const { messages, sendMessage } = useChat();
     const bottom = ref(null);
     watch(
@@ -137,7 +137,7 @@ export default {
       sendMessage(message.value);
       message.value = "";
     };
-    return { user, isLogin, messages, bottom, message, send };
+    return { user, isLogin, messages, bottom, message, send, signOut };
   },
 };
 </script>

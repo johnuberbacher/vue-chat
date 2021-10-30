@@ -7,7 +7,9 @@
         w-10
         h-10
         mt-4
-        bg-cover
+        bg-cover 
+        bg-center 
+        bg-no-repeat
         border-2 border-green-600
       "
       :style="{ backgroundImage: 'url(' + photoUrl + ')' }"
@@ -52,13 +54,12 @@
           pb-1
         "
       >
-        {{ userName }}
       </div>
       <div
         class="
           cursor-default
-          text-sm text-gray-600
-          bg-white
+          text-sm text-white
+          bg-green-600
           font-medium
           shadow
           rounded-xl
@@ -77,8 +78,10 @@
         ml-5
         w-10
         h-10
-        mt-4
-        bg-cover
+        mt-2
+        bg-cover 
+        bg-center 
+        bg-no-repeat
         border-2 border-green-600
       "
       :style="{ backgroundImage: 'url(' + photoUrl + ')' }"
@@ -90,8 +93,10 @@
         ml-5
         w-10
         h-10
-        mt-4
-        bg-cover
+        mt-2
+        bg-cover 
+        bg-center 
+        bg-no-repeat
         border-2 border-green-600
       "
       style="background-image: url('https://avatars.githubusercontent.com/u/5966499?v=4');

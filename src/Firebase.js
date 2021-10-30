@@ -6,7 +6,13 @@ import router from './services/Router.js'
 import { ref, onUnmounted, computed } from 'vue'
 
 firebase.initializeApp({
-
+    apiKey: "AIzaSyAeyYwnF6JvO7-x51NsKQrTcAgQOQT0ATE",
+    authDomain: "sendly-chat.firebaseapp.com",
+    projectId: "sendly-chat",
+    storageBucket: "sendly-chat.appspot.com",
+    messagingSenderId: "334629847290",
+    appId: "1:334629847290:web:79fd272cb110f4be2f4943",
+    measurementId: "G-EEDG4BE09H"
 })
 
 const auth = firebase.auth()
@@ -23,12 +29,19 @@ export function useAuth() {
             router.push({path: '/Chat'});
         })
     }
-    const signOut = () => {
-        auth.signOut()
-        router.push({path: '/'})
+    const signInWithGitHub = async () => {
+        const googleProvider = new firebase.auth.GithubAuthProvider()
+        await auth.signInWithPopup(googleProvider).then(() => {
+            router.push({path: '/Chat'});
+        })
+    }
+    const signOut = async () => {
+        await auth.signOut().then(() => {
+            router.push({path: '/'})
+        })
     }
 
-    return { user, isLogin, signIn, signOut }
+    return { user, isLogin, signIn, signOut, signInWithGitHub }
 }
 
 const firestore = firebase.firestore()

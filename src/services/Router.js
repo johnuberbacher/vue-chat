@@ -12,8 +12,12 @@ const routes = [
     {
         path: '/Chat',
         name: "Chat",
-        component: Chat
-    }
+        component: Chat,
+        meta: {
+          requiresAuth: true
+        },
+    },
+    { path: "/:catchAll(.*)", redirect: {path: '/'} }
 ];
 
 const router = createRouter({
