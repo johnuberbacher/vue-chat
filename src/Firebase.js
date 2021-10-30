@@ -6,6 +6,13 @@ import router from './services/Router.js'
 import { ref, onUnmounted, computed } from 'vue'
 
 firebase.initializeApp({
+    apiKey: "AIzaSyAeyYwnF6JvO7-x51NsKQrTcAgQOQT0ATE",
+    authDomain: "sendly-chat.firebaseapp.com",
+    projectId: "sendly-chat",
+    storageBucket: "sendly-chat.appspot.com",
+    messagingSenderId: "334629847290",
+    appId: "1:334629847290:web:79fd272cb110f4be2f4943",
+    measurementId: "G-EEDG4BE09H"
 })
 
 const auth = firebase.auth()
