@@ -23,11 +23,6 @@ export function useAuth() {
     onUnmounted(unsubscribe)
     const isLogin = computed(() => user.value !== null)
 
-    
-    if (computed(isLogin)) {
-        router.push("/Chat");
-    }
-
     const signIn = async () => {
         const googleProvider = new firebase.auth.GoogleAuthProvider()
         await auth.signInWithPopup(googleProvider).then(() => {
