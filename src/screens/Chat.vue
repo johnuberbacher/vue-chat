@@ -60,7 +60,14 @@
             "
           >
             <Message
-              v-for="{ id, text, userName, photoUrl, userId, createdAt } in messages"
+              v-for="{
+                id,
+                text,
+                userName,
+                photoUrl,
+                userId,
+                createdAt,
+              } in messages"
               :key="id"
               :userName="userName"
               :photoUrl="photoUrl"

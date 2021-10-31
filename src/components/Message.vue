@@ -6,13 +6,15 @@
         mr-5
         w-10
         h-10
-        mt-4
-        bg-cover 
-        bg-center 
-        bg-no-repeat
+        mt-5
+        bg-cover bg-center bg-no-repeat
         border-2 border-green-600
       "
-      :style="{ minWidth: '2.5rem', minHeight: '2.5rem', backgroundImage: 'url(' + photoUrl + ')' }"
+      :style="{
+        minWidth: '2.5rem',
+        minHeight: '2.5rem',
+        backgroundImage: 'url(' + photoUrl + ')',
+      }"
     ></div>
     <div class="flex flex-col items-start">
       <div
@@ -24,7 +26,7 @@
           pb-1
         "
       >
-        {{ userName }}
+        {{ userName }} - {{ createdAt.toDate().toDateString() }}
       </div>
       <div
         class="
@@ -56,7 +58,26 @@
           pb-1
         "
       >
+        {{ userName }}
       </div>
+      <div
+        class="
+          cursor-default
+          text-xs text-gray-400
+          dark:text-gray-500
+          font-medium
+          pb-1
+        "
+      ></div>
+      <div
+        class="
+          cursor-default
+          text-xs text-gray-400
+          dark:text-gray-500
+          font-medium
+          pb-1
+        "
+      ></div>
       <div
         class="
           cursor-default
@@ -79,13 +100,15 @@
         ml-5
         w-10
         h-10
-        mt-2
-        bg-cover 
-        bg-center 
-        bg-no-repeat
+        mt-5
+        bg-cover bg-center bg-no-repeat
         border-2 border-green-600
       "
-      :style="{ minWidth: '2.5rem', minHeight: '2.5rem', backgroundImage: 'url(' + photoUrl + ')' }"
+      :style="{
+        minWidth: '2.5rem',
+        minHeight: '2.5rem',
+        backgroundImage: 'url(' + photoUrl + ')',
+      }"
     ></div>
   </div>
 </template>
@@ -98,8 +121,6 @@ export default {
     photoUrl: { type: String, default: "" },
     sender: { type: Boolean, default: false },
   },
-  methods: {
-      
-  }
+  methods: {},
 };
 </script>

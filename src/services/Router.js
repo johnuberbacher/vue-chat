@@ -9,7 +9,7 @@ const routes = [
         name: "Login",
         component: Login,
         meta: {
-          requiresAuth: false
+            requiresAuth: false
         }
     },
     {
@@ -17,10 +17,10 @@ const routes = [
         name: "Chat",
         component: Chat,
         meta: {
-          requiresAuth: true
+            requiresAuth: true
         },
     },
-    { path: "/:catchAll(.*)", redirect: {path: '/'} }
+    { path: "/:catchAll(.*)", redirect: { path: '/' } }
 ];
 
 const router = createRouter({
