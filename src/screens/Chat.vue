@@ -21,16 +21,17 @@
         <div class="h-full flex flex-col">
           <div class="flex flex-row mb-5">
             <button
-            type="button"
-            v-if="isLogin"
-            @click="signOut"
+              type="button"
+              v-if="isLogin"
+              @click="signOut"
               class="
                 text-xs
                 shadow
                 border-2 border-green-600
                 bg-transparent
                 dark:bg-gray-900
-                hover:bg-green-600 hover:text-white focus:text-white
+                hover:bg-green-600 hover:text-white
+                focus:text-white
                 text-green-600
                 focus:bg-green-700 focus:shadow-outline focus:outline-none
                 font-bold
@@ -59,14 +60,16 @@
             "
           >
             <Message
-              v-for="{ id, text, userName, photoUrl, userId } in messages"
+              v-for="{ id, text, userName, photoUrl, userId, createdAt } in messages"
               :key="id"
               :userName="userName"
               :photoUrl="photoUrl"
+              :createdAt="createdAt"
               :sender="userId === user?.uid"
             >
               {{ text }}
             </Message>
+            <div ref="scrollview"></div>
           </div>
           <div class="flex flex-wrap -mx-3 mt-5">
             <div class="flex justify-center w-full px-3">
@@ -81,8 +84,7 @@
                   text-sm
                   border border-gray-300
                   rounded-lg
-                  dark:text-white
-                  dark:bg-gray-900 dark:border-gray-700
+                  dark:text-white dark:bg-gray-900 dark:border-gray-700
                   focus:ring-green-500 focus:border-green-500
                 "
                 required
@@ -116,18 +118,22 @@
 import { ref, watch, nextTick } from "vue";
 import { useAuth, useChat } from "../Firebase";
 import Message from "../components/Message.vue";
+const messageAudio = require("../assets/sfx/pop.mp3");
+
 export default {
   name: "Chat",
   components: { Message },
   setup() {
     const { user, isLogin, signOut } = useAuth();
     const { messages, sendMessage } = useChat();
-    const bottom = ref(null);
+    const scrollview = ref(null);
     watch(
       messages,
       () => {
         nextTick(() => {
-          bottom.value?.scrollIntoView({ behavior: "smooth" });
+          var audio = new Audio(messageAudio); // path to file
+          audio.play();
+          scrollview.value?.scrollIntoView({ behavior: "smooth" });
         });
       },
       { deep: true }
@@ -137,7 +143,7 @@ export default {
       sendMessage(message.value);
       message.value = "";
     };
-    return { user, isLogin, messages, bottom, message, send, signOut };
+    return { user, isLogin, messages, scrollview, message, send, signOut };
   },
 };
 </script>

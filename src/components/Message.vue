@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row mt-5" v-if="sender == false">
+  <div class="flex flex-row mt-5 flex-start max-w-3/4" v-if="sender == false">
     <div
       class="
         rounded-full
@@ -12,7 +12,7 @@
         bg-no-repeat
         border-2 border-green-600
       "
-      :style="{ backgroundImage: 'url(' + photoUrl + ')' }"
+      :style="{ minWidth: '2.5rem', minHeight: '2.5rem', backgroundImage: 'url(' + photoUrl + ')' }"
     ></div>
     <div class="flex flex-col items-start">
       <div
@@ -30,7 +30,9 @@
         class="
           cursor-default
           text-sm text-gray-600
+          dark:text-white
           bg-white
+          dark:bg-gray-800
           font-medium
           shadow
           rounded-xl
@@ -43,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-row mt-5 self-end" v-else>
+  <div class="flex flex-row mt-5 self-end max-w-3/4" v-else>
     <div class="flex flex-col items-end">
       <div
         class="
@@ -83,9 +85,8 @@
         bg-no-repeat
         border-2 border-green-600
       "
-      :style="{ backgroundImage: 'url(' + photoUrl + ')' }"
+      :style="{ minWidth: '2.5rem', minHeight: '2.5rem', backgroundImage: 'url(' + photoUrl + ')' }"
     ></div>
-    
   </div>
 </template>
 
@@ -93,8 +94,12 @@
 export default {
   props: {
     userName: { type: String, default: "" },
+    createdAt: { type: String, default: "" },
     photoUrl: { type: String, default: "" },
     sender: { type: Boolean, default: false },
   },
+  methods: {
+      
+  }
 };
 </script>
