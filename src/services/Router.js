@@ -7,7 +7,10 @@ const routes = [
     {
         path: '',
         name: "Login",
-        component: Login
+        component: Login,
+        meta: {
+          requiresAuth: false
+        }
     },
     {
         path: '/Chat',
@@ -23,6 +26,6 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-});
+})
 
 export default router
