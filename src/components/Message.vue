@@ -72,7 +72,6 @@
       </div>
     </div>
     <div
-      v-if="photoUrl"
       class="
         rounded-full
         ml-5
@@ -86,22 +85,7 @@
       "
       :style="{ backgroundImage: 'url(' + photoUrl + ')' }"
     ></div>
-    <div
-      else
-      class="
-        rounded-full
-        ml-5
-        w-10
-        h-10
-        mt-2
-        bg-cover 
-        bg-center 
-        bg-no-repeat
-        border-2 border-green-600
-      "
-      :style="{ backgroundImage: 'url(' + photoUrl + ')' }
-      "
-    ></div>
+    
   </div>
 </template>
 

@@ -23,7 +23,7 @@
               mb-10
             "
           >
-            Built with Vue.JS, TailwindCSS and Firebase 
+            Built with Vue.JS, TailwindCSS and Firebase
           </p>
           <div class="flex flex-wrap -mx-3 mb-6">
             <div class="flex justify-center w-full px-3">
@@ -45,7 +45,10 @@
               >
                 Sign Out
               </button>
-              <div class="flex align-center items-center flex-col lg:flex-row" v-else>
+              <div
+                class="flex align-center items-center flex-col lg:flex-row"
+                v-else
+              >
                 <button
                   @click="signIn"
                   class="
@@ -108,7 +111,8 @@ import { useAuth } from "../Firebase";
 export default {
   name: "Login",
   setup() {
-    const { user, isLogin, signOut, signIn, signInWithGitHub } = useAuth();
+    const { user, isLogin, signOut, signIn, signInWithGitHub } =
+      useAuth();
     return { user, isLogin, signOut, signIn, signInWithGitHub };
   },
 };
