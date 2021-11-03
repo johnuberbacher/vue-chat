@@ -5,6 +5,10 @@
 
 Vue practice project built with Firebase and TailwindCSS. Utilizes Firebases realtime database stream to constantly update messages on the front end. Uses Google and GitHub Authentication for signing into the app, and uses Vue Router to pass between Login and Chat screens.
 
+
+### Screenshot
+![Screenshot](https://johnuberbacher.com/wp-content/uploads/2021/11/vue-chat.png)
+
 ### Demo
 [https://vue-chat-johnuberbacher.netlify.app/](https://vue-chat-johnuberbacher.netlify.app/)
 
